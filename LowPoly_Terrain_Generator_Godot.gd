@@ -1,10 +1,8 @@
 extends Spatial
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +10,7 @@ func _ready():
 	noise.period = 80
 	noise.octaves = 6
 	
-	var plane_mesh = PlaneMesh.new()
+        var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(400, 400)
 	plane_mesh.subdivide_depth = 200
 	plane_mesh.subdivide_width = 200
@@ -23,7 +21,6 @@ func _ready():
 	var array_plane = surface_tool.commit()
 	var data_tool=MeshDataTool.new()
 	data_tool.create_from_surface(array_plane, 0)
-	
 	
 	for i in range(data_tool.get_vertex_count()): 
 		var vertex = data_tool.get_vertex(i)
@@ -39,12 +36,10 @@ func _ready():
 	surface_tool.create_from(array_plane, 0)
 	surface_tool.generate_normals()
 	
-	
 	var mesh_instance = MeshInstance.new()
 	mesh_instance.mesh=surface_tool.commit()
 	
 	add_child(mesh_instance)
-	
 	
 #This bellow code is for adding camerarotation effect
 #Add spatial node and add a camera to it
